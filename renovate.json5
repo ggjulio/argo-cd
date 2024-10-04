@@ -1,58 +1,67 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "baseBranches": [ "dev"], // just to test without poluting my fork
-  "dependencyDashboard": false,
-  "dependencyDashboardApproval": false, // set to true to ask an approval before creating a PR.
-  "dependencyDashboardOSVVulnerabilitySummary": "all",
-  "osvVulnerabilityAlerts": true,
-  "reviewersFromCodeOwners": true,
-  // "timezone": "Europe/Paris", // used by features like scheduling...
-  "extends": [
-    // "schedule:nonOfficeHours", // https://docs.renovatebot.com/presets-schedule/#schedulenonofficehours
-    "config:best-practices",
-    "security:openssf-scorecard",
-    "mergeConfidence:all-badges",
-    "regexManagers:dockerfileVersions", // https://docs.renovatebot.com/presets-customManagers/#custommanagersdockerfileversions
-    // TODO change shared presets with a repo like `argoproj/renovate-presets`
-    "github>ggjulio/renovate-presets//fix/openssf-merge-confidence-columns.json5",
-    "github>ggjulio/renovate-presets//custom-managers/shell.json5",
-    "github>ggjulio/renovate-presets//custom-managers/yaml.json5",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  baseBranches: [
+    'dev',
   ],
-  "packageRules": [
-    // Prefer presets over creating rules in that file as it we become hard to read.
+  dependencyDashboard: false,
+  dependencyDashboardApproval: false,
+  dependencyDashboardOSVVulnerabilitySummary: 'all',
+  osvVulnerabilityAlerts: true,
+  reviewersFromCodeOwners: true,
+  extends: [
+    'config:best-practices',
+    'security:openssf-scorecard',
+    'mergeConfidence:all-badges',
+    'customManagers:dockerfileVersions',
+    'github>ggjulio/renovate-presets//fix/openssf-merge-confidence-columns.json5',
+    'github>ggjulio/renovate-presets//custom-managers/shell.json5',
+    'github>ggjulio/renovate-presets//custom-managers/yaml.json5',
+  ],
+  packageRules: [
     {
-      "description": "Disable all updates to avoid conflicts with dependabot, then enable what we want",
-      "matchPackageNames": [
-        "*"
+      description: 'Disable all updates to avoid conflicts with dependabot, then enable what we want',
+      matchPackageNames: [
+        '*',
       ],
-      "enabled": false
+      enabled: false,
     },
     {
-      "description": "Add label dependencies to all PRs",
-      "matchPackageNames": ["*"],
-      "labels": ["dependencies"]
-    },
-    {
-      "description": "Enable golang-version",
-      "matchDatasources": ["golang-version"],
-      "addLabels": ["go"],
-      "enabled": true
-    },
-    {
-      "description": "Enable node-version",
-      "matchDatasources": ["node-version"],
-      "addLabels": ["javascript"],
-      "enabled": true
-    },
-    {
-      "description": "Reduce noise by automerging pkgs that are safe to merge, TBD",
-      // Just an example, multiple match fields can be used to reduce the scope of this rule (matchFileNames, matchManagers, matchPackageNames...)
-      "matchUpdateTypes": [
-        "patch",
-        "pin",
-        "digest"
+      description: 'Add label dependencies to all PRs',
+      matchPackageNames: [
+        '*',
       ],
-      "automerge": false // change to true ?
-    }
-  ]
+      labels: [
+        'dependencies',
+      ],
+    },
+    {
+      description: 'Enable golang-version',
+      matchDatasources: [
+        'golang-version',
+      ],
+      addLabels: [
+        'go',
+      ],
+      enabled: true,
+    },
+    {
+      description: 'Enable node-version',
+      matchDatasources: [
+        'node-version',
+      ],
+      addLabels: [
+        'javascript',
+      ],
+      enabled: true,
+    },
+    {
+      description: 'Reduce noise by automerging pkgs that are safe to merge, TBD',
+      matchUpdateTypes: [
+        'patch',
+        'pin',
+        'digest',
+      ],
+      automerge: false,
+    },
+  ],
 }
