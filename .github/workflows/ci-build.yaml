@@ -14,7 +14,7 @@ on:
 env:
   # Golang version to use across CI steps
   # renovate: datasource=golang-version packageName=golang
-  GOLANG_VERSION: '1.23.1'
+  GOLANG_VERSION: '1.23.0'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -112,7 +112,7 @@ jobs:
         uses: golangci/golangci-lint-action@971e284b6050e8a5849b72094c50ab08da042db8 # v6.1.1
         with:
           # renovate: datasource=go packageName=github.com/golangci/golangci-lint versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)?$
-          version: v1.61.0
+          version: v1.60.0
           args: --verbose
 
   test-go:
@@ -308,7 +308,7 @@ jobs:
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           # renovate: datasource=node-version packageName=Node.Js versioning=node
-          node-version: '22.8.0'
+          node-version: '22.7.0'
       - name: Restore node dependency cache
         id: cache-dependencies
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
