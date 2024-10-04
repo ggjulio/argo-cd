@@ -1,0 +1,100 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranches": [ "dev"], // just to test without poluting my fork
+  "dependencyDashboard": false,
+  "dependencyDashboardApproval": false, // set to true to ask an approval before creating a PR.
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "osvVulnerabilityAlerts": true,
+  "reviewersFromCodeOwners": true,
+  // "timezone": "Europe/Paris", // used by features like scheduling...
+  "extends": [
+    // "schedule:nonOfficeHours", // https://docs.renovatebot.com/presets-schedule/#schedulenonofficehours
+    "config:best-practices",
+    "security:openssf-scorecard",
+    "mergeConfidence:all-badges",
+    "regexManagers:dockerfileVersions", // https://docs.renovatebot.com/presets-customManagers/#custommanagersdockerfileversions
+    // TODO change shared presets with a repo like `argoproj/renovate-presets`
+    "github>ggjulio/renovate-presets//fix/openssf-merge-confidence-columns.json5",
+    "github>ggjulio/renovate-presets//custom-managers/shell.json5",
+    "github>ggjulio/renovate-presets//custom-managers/yaml.json5",
+  ],
+  "packageRules": [
+    // Prefer presets over creating rules in that file as it we become hard to read.
+    {
+      "description": "Disable all updates to avoid conflicts with dependabot, then enable what we want",
+      "matchPackageNames": [
+        "*"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Add label dependencies to all PRs",
+      "matchPackageNames": ["*"],
+      "labels": ["dependencies"]
+    },
+    {
+      "description": "Enable golang-version",
+      "matchDatasources": ["golang-version"],
+      "addLabels": ["go"],
+      "enabled": true
+    },
+    {
+      "description": "Enable node-version",
+      "matchDatasources": ["node-version"],
+      "addLabels": ["javascript"],
+      "enabled": true
+    },
+    {
+      "description": "Renovate's managers does not understand versioning for dockefiles, that's up to us...",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["docker.io/library/node"],
+      "versioning": "node"
+    },
+    {
+      "description": "an example to reduce noise by automerging pkgs that are safe to merge, multiple match fields can be used to reduce the scope of this rule...)",
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": false
+    },
+    {
+      "description": "Merge the output of mergeConfidence:all-badges and security:openssf-scorecard.  See https://github.com/renovatebot/renovate/discussions/25125 for rationale.",
+      "matchPackagePatterns": [".*"],
+      "prBodyColumns": [
+          "Package",
+          "Type",
+          "Update",
+          "Change",
+          "Age",
+          "Adoption",
+          "Passing",
+          "Confidence",
+          "OpenSSF"
+      ]
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "A generic custom manager for updating any shell scripts.",
+      "customType": "regex",
+      "fileMatch": [".+\\.(?:bash|sh|ksh)$"],
+      "matchStrings": [
+          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
+          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?<currentValue>[^'\"\\s]+)"
+      ]
+    },
+    {
+      "description": "A generic custom manager for updating any yaml fields ending by *version: case incensitive",
+      "customType": "regex",
+      "fileMatch": [
+          ".github\\/workflows.+\\.(?:yml|yaml)$",
+      ],
+      "matchStrings": [
+          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
+          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?<currentValue>[^'\"\\s]+)"
+      ]
+    }
+  ]
+}
