@@ -42,6 +42,7 @@
       "description": "Enable some go modules",
       "matchDatasources": ["go"],
       "matchPackageNames":[
+        "go",
         "github.com/golangci/golangci-lint"
       ],
       "addLabels": ["go"],
@@ -56,6 +57,36 @@
       ],
       "enabled": true
     },
+    {
+      "description": "Group golang packages",
+      "groupName": "golang packages",
+      "matchDepNames": [
+      "go",
+      "golang",
+      "docker.io/golang",
+      "docker.io/library/golang"
+      ]
+    },
+    {
+      "description": "add library/node to the Node.JS group. The rational : https://github.com/renovatebot/renovate/discussions/23441#discussioncomment-6485008",
+      "groupName": "Node.js",
+      "commitMessageTopic": "Node.js",
+      "excludePackageNames": ["calico/node", "kindest/node"],
+      "matchDepNames": ["node"],
+      "matchPackagePatterns": ["/node$"]
+    }, // docker.io/library/node
+    // {
+    //   "description": "",
+    //   "groupName": "",
+    //   "matchDepNames": [
+    //     "golang",
+    //     "go"
+    //   ],
+    //   "matchUpdateTypes": [
+    //     "minor",
+    //     "patch"
+    //   ]
+    // },
     // {
     //   "groupName": "all non-major dependencies go",
     //   "groupSlug": "all-minor-patch-go",
