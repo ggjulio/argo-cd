@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranches": [ "dev"], // just to test without poluting my fork
   "dependencyDashboard": false,
   "dependencyDashboardApproval": false, // set to true to ask an approval before creating a PR.
   "dependencyDashboardOSVVulnerabilitySummary": "all",
