@@ -1,141 +1,155 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "baseBranches": [
-    "dev"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  baseBranches: [
+    'dev',
   ],
-  "dependencyDashboard": true,
-  "prHourlyLimit": 0,
-  "dependencyDashboardOSVVulnerabilitySummary": "all",
-  "osvVulnerabilityAlerts": true,
-  "reviewersFromCodeOwners": true,
-  "extends": [
-    "config:best-practices",
-    "security:openssf-scorecard",
-    "mergeConfidence:all-badges",
-    "regexManagers:dockerfileVersions",
+  dependencyDashboard: true,
+  prHourlyLimit: 0,
+  dependencyDashboardOSVVulnerabilitySummary: 'all',
+  osvVulnerabilityAlerts: true,
+  reviewersFromCodeOwners: true,
+  extends: [
+    'config:best-practices',
+    'security:openssf-scorecard',
+    'mergeConfidence:all-badges',
+    'customManagers:dockerfileVersions',
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "description": "Disable all updates to avoid conflicts with dependabot, then enable what we want",
-      "matchPackageNames": [
-        "*"
+      description: 'Disable all updates to avoid conflicts with dependabot, then enable what we want',
+      matchPackageNames: [
+        '*',
       ],
-      "enabled": false
+      enabled: false,
     },
     {
-      "description": "Add label dependencies to all PRs",
-      "matchPackageNames": ["*"],
-      "labels": ["dependencies"]
-    },
-    {
-      "description": "Enable node-version",
-      "matchDatasources": ["node-version"],
-      "addLabels": ["javascript"],
-      "enabled": true
-    },
-    {
-      "description": "Enable golang-version",
-      "matchDatasources": ["golang-version"],
-      "addLabels": ["go"],
-      "enabled": true
-    },
-    {
-      "description": "Enable some go modules",
-      "matchDatasources": ["go"],
-      "matchPackageNames":[
-        "go",
-        "github.com/golangci/golangci-lint"
+      description: 'Add label dependencies to all PRs',
+      matchPackageNames: [
+        '*',
       ],
-      "addLabels": ["go"],
-      "enabled": true
-    },
-    {
-      "description": "Enable bump of golang version in go.mod",
-      "matchDatasources": ["golang-version"],
-      "rangeStrategy": "bump"
-    },
-    {
-      "description": "Enable some docker images",
-      "matchDatasources": ["docker"],
-      "matchPackageNames": [
-        "docker.io/library/node",
-        "docker.io/library/golang"
+      labels: [
+        'dependencies',
       ],
-      "enabled": true
     },
     {
-      "description": "Group golang-version packages",
-      "groupName": "golang version",
-      "matchDepNames": [
-      "go",
-      "golang",
-      "docker.io/golang",
-      "docker.io/library/golang"
-      ]
-    },
-    {
-      "description": "Group node-version packages",
-      "groupName": "node version",
-      "matchDepNames": [
-      "node",
-      "docker.io/library/node"
-      ]
-    },
-    // {
-    //   "description": "add library/node to the Node.JS group. The rational : https://github.com/renovatebot/renovate/discussions/23441#discussioncomment-6485008",
-    //   "groupName": "Node.js",
-    //   "commitMessageTopic": "Node.js",
-    //   "excludePackageNames": ["calico/node", "kindest/node"],
-    //   "matchDepNames": ["node"],
-    //   "matchPackagePatterns": ["/node$"]
-    // },
-    {
-      "description": "an example to reduce noise by automerging pkgs that are safe to merge, multiple match fields can be used to reduce the scope of this rule...)",
-      "matchUpdateTypes": [
-        "patch",
-        "pin",
-        "digest"
+      description: 'Enable node-version',
+      matchDatasources: [
+        'node-version',
       ],
-      "automerge": false
+      addLabels: [
+        'javascript',
+      ],
+      enabled: true,
     },
     {
-      "description": "Merge the output of mergeConfidence:all-badges and security:openssf-scorecard.  See https://github.com/renovatebot/renovate/discussions/25125 for rationale.",
-      "matchPackagePatterns": [".*"],
-      "prBodyColumns": [
-          "Package",
-          "Type",
-          "Update",
-          "Change",
-          "Age",
-          "Adoption",
-          "Passing",
-          "Confidence",
-          "OpenSSF"
-      ]
-    }
+      description: 'Enable golang-version',
+      matchDatasources: [
+        'golang-version',
+      ],
+      addLabels: [
+        'go',
+      ],
+      enabled: true,
+    },
+    {
+      description: 'Enable some go modules',
+      matchDatasources: [
+        'go',
+      ],
+      matchPackageNames: [
+        'go',
+        'github.com/golangci/golangci-lint',
+      ],
+      addLabels: [
+        'go',
+      ],
+      enabled: true,
+    },
+    {
+      description: 'Enable bump of golang version in go.mod',
+      matchDatasources: [
+        'golang-version',
+      ],
+      rangeStrategy: 'bump',
+    },
+    {
+      description: 'Enable some docker images',
+      matchDatasources: [
+        'docker',
+      ],
+      matchPackageNames: [
+        'docker.io/library/node',
+        'docker.io/library/golang',
+      ],
+      enabled: true,
+    },
+    {
+      description: 'Group golang-version packages',
+      groupName: 'golang version',
+      matchDepNames: [
+        'go',
+        'golang',
+        'docker.io/golang',
+        'docker.io/library/golang',
+      ],
+    },
+    {
+      description: 'Group node-version packages',
+      groupName: 'node version',
+      matchDepNames: [
+        'node',
+        'docker.io/library/node',
+      ],
+    },
+    {
+      description: 'an example to reduce noise by automerging pkgs that are safe to merge, multiple match fields can be used to reduce the scope of this rule...)',
+      matchUpdateTypes: [
+        'patch',
+        'pin',
+        'digest',
+      ],
+      automerge: false,
+    },
+    {
+      description: 'Merge the output of mergeConfidence:all-badges and security:openssf-scorecard.  See https://github.com/renovatebot/renovate/discussions/25125 for rationale.',
+      prBodyColumns: [
+        'Package',
+        'Type',
+        'Update',
+        'Change',
+        'Age',
+        'Adoption',
+        'Passing',
+        'Confidence',
+        'OpenSSF',
+      ],
+      matchPackageNames: [
+        '/.*/',
+      ],
+    },
   ],
-  "customManagers": [
+  customManagers: [
     {
-      "description": "A generic custom manager for updating any shell scripts.",
-      "customType": "regex",
-      "fileMatch": [
-        ".+\\.(?:bash|sh|ksh)$"
+      description: 'A generic custom manager for updating any shell scripts.',
+      customType: 'regex',
+      fileMatch: [
+        '.+\\.(?:bash|sh|ksh)$',
       ],
-      "matchStrings": [
-          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
-          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?<currentValue>[^'\"\\s]+)"
-      ]
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?:\'|")(?<currentValue>[^(?:\'|")]+)(?:\'|")',
+        '# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?_VERSION\\s*=\\s*(?<currentValue>[^\'"\\s]+)',
+      ],
     },
     {
-      "description": "A generic custom manager for updating any yaml fields ending by *version: case incensitive",
-      "customType": "regex",
-      "fileMatch": [
-          ".github\\/workflows.+\\.(?:yml|yaml)$",
+      description: 'A generic custom manager for updating any yaml fields ending by *version: case incensitive',
+      customType: 'regex',
+      fileMatch: [
+        '.github\\/workflows.+\\.(?:yml|yaml)$',
       ],
-      "matchStrings": [
-          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
-          "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?<currentValue>[^'\"\\s]+)"
-      ]
-    }
-  ]
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:\'|")(?<currentValue>[^(?:\'|")]+)(?:\'|")',
+        '# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?<currentValue>[^\'"\\s]+)',
+      ],
+    },
+  ],
 }
