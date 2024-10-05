@@ -4,6 +4,7 @@
     "dev"
   ],
   "dependencyDashboard": true,
+  "prHourlyLimit": 0,
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "osvVulnerabilityAlerts": true,
   "reviewersFromCodeOwners": true,
@@ -11,7 +12,7 @@
     "config:best-practices",
     "security:openssf-scorecard",
     "mergeConfidence:all-badges",
-    "regexManagers:dockerfileVersions",
+    "regexManagers:dockerfileVersions"
   ],
   "packageRules": [
     {
@@ -27,25 +28,31 @@
       "labels": ["dependencies"]
     },
     {
-      "description": "Enable golang-version",
-      "matchDatasources": ["golang-version"],
-      "addLabels": ["go"],
-      "enabled": true
-    },
-    {
       "description": "Enable node-version",
       "matchDatasources": ["node-version"],
       "addLabels": ["javascript"],
       "enabled": true
     },
     {
+      "description": "Enable golang-version",
+      "matchDatasources": ["golang-version"],
+      "addLabels": ["go"],
+      "enabled": true
+    },
+    {
       "description": "Enable some go modules",
       "matchDatasources": ["go"],
       "matchPackageNames":[
+        "go",
         "github.com/golangci/golangci-lint"
       ],
       "addLabels": ["go"],
       "enabled": true
+    },
+    {
+      "description": "Enable bump of golang version in go.mod",
+      "matchDatasources": ["golang-version"],
+      "rangeStrategy": "bump"
     },
     {
       "description": "Enable some docker images",
@@ -56,18 +63,24 @@
       ],
       "enabled": true
     },
-    // {
-    //   "groupName": "all non-major dependencies go",
-    //   "groupSlug": "all-minor-patch-go",
-    //   "matchDepNames": [
-    //     "golang",
-    //     "go"
-    //   ],
-    //   "matchUpdateTypes": [
-    //     "minor",
-    //     "patch"
-    //   ]
-    // },
+    {
+      "description": "Group golang-version packages",
+      "groupName": "golang version",
+      "matchDepNames": [
+      "go",
+      "golang",
+      "docker.io/golang",
+      "docker.io/library/golang"
+      ]
+    },
+    {
+      "description": "Group node-version packages",
+      "groupName": "node version",
+      "matchDepNames": [
+      "node",
+      "docker.io/library/node"
+      ]
+    },
     {
       "description": "an example to reduce noise by automerging pkgs that are safe to merge, multiple match fields can be used to reduce the scope of this rule...)",
       "matchUpdateTypes": [
@@ -109,7 +122,7 @@
       "description": "A generic custom manager for updating any yaml fields ending by *version: case incensitive",
       "customType": "regex",
       "fileMatch": [
-          ".github\\/workflows.+\\.(?:yml|yaml)$",
+          ".github\\/workflows.+\\.(?:yml|yaml)$"
       ],
       "matchStrings": [
           "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
