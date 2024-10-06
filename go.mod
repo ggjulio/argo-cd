@@ -7,7 +7,7 @@ require (
 	github.com/Azure/kubelogin v0.0.20
 	github.com/Masterminds/semver/v3 v3.3.0
 	github.com/Masterminds/sprig/v3 v3.3.0
-	github.com/TomOnTime/utfutil v0.0.0-20180511104225-09c41003ee1d
+	github.com/TomOnTime/utfutil v0.0.0-20230223141146-125e65197b36
 	github.com/alicebob/miniredis/v2 v2.33.0
 	github.com/antonmedv/expr v1.15.1
 	github.com/argoproj/gitops-engine v0.7.1-0.20240917171920-72bcdda3f0a5
