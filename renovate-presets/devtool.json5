@@ -43,16 +43,16 @@
     // },
     {
       "description": "Group golang-version packages",
-      "commitMessageTopic": "golang",
       "matchDatasources":[
         "docker"
       ],
       "matchPackageNames": [
         "/(?:^|/)golang$/",
-          // "golang",
-          // "docker.io/golang",
-          // "docker.io/library/golang"
-        ]
+        "golang",
+        "docker.io/golang",
+        "docker.io/library/golang"
+      ],
+      "commitMessageTopic": "golang"
     },
     {
       "description": "Group node-version packages",
