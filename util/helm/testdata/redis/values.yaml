@@ -4,7 +4,7 @@
 image:
   registry: docker.io
   repository: bitnami/redis
-  tag: 4.0.10-debian-9
+  tag: 4.0.14-debian-10-r104@sha256:12e078f2ab1626f4a608bee7d6b0780511b23d100e3d6d9bde7fa55783eee601
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
