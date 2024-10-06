@@ -79,7 +79,7 @@
     "@types/jest": "^29.5.12",
     "@types/js-yaml": "^4.0.9",
     "@types/lodash-es": "^4.17.6",
-    "@types/minimatch": "^3.0.3",
+    "@types/minimatch": "^5.0.0",
     "@types/node": "20.14.12",
     "@types/prop-types": "^15.7.5",
     "@types/react": "^16.8.5",
