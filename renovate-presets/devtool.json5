@@ -1,0 +1,74 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Rules specific to the devtool (CI, dev environment...)",
+  "packageRules": [
+    {
+      "description": "Enable updates from specified datasources",
+      "matchDatasources": [
+        "node-version",
+        "golang-version"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Enable updates from specified go modules",
+      "matchDatasources": [
+        "go"
+      ],
+      "matchPackageNames": [
+        "github.com/golangci/golangci-lint"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Enable updates from specified docker images",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "docker.io/library/node",
+        "docker.io/library/golang"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Group golang-version packages",
+      "groupName": "golang version",
+      "matchDepNames": [
+        "go",
+        "golang",
+        "docker.io/golang",
+        "docker.io/library/golang"
+      ]
+    },
+    {
+      "description": "Group nodeJs packages",
+      "extends": [
+        "group:nodeJs"
+      ]
+    },
+    {
+      "description": "Example: reduce noise by automerging safe pkgs. Multiple match fields can be used to reduce the scope of this rule...",
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": false
+    }
+  ]
+}
+
+
+// {
+//   "commitMessageTopic": "Node.js",
+//   "matchDatasources": [
+//     "docker"
+//   ],
+//   "matchPackageNames": [
+//     "/(?:^|/)node$/",
+//     "!calico/node",
+//     "!docker.io/calico/node",
+//     "!kindest/node"
+//   ]
+// }
