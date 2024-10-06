@@ -39,7 +39,8 @@
         "golang",
         "docker.io/golang",
         "docker.io/library/golang"
-      ]
+      ],
+      "separateMajorMinor": true
     },
     {
       "description": "Group node-version packages",
@@ -47,7 +48,8 @@
       "matchDepNames": [
         "node",
         "docker.io/library/node"
-      ]
+      ],
+      "separateMajorMinor": true
     },
     {
       "description": "Separate major into their PRs",
