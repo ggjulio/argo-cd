@@ -36,7 +36,7 @@ metrics:
   image:
     registry: docker.io
     repository: oliver006/redis_exporter
-    tag: v0.20.2
+    tag: v0.34.1@sha256:4f4420c643e83840753d57b8f7a5afd08b83f1645ca43c60278b75a3907a57a5
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
