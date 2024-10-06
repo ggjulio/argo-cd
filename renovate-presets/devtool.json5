@@ -31,29 +31,14 @@
       ],
       "enabled": true
     },
-    // {
-    //   "description": "Group golang-version packages",
-    //   "groupName": "golang version",
-    //   "matchDepNames": [
-    //     "go",
-    //     "golang",
-    //     "docker.io/golang",
-    //     "docker.io/library/golang"
-    //   ]
-    // },
     {
       "description": "Group golang-version packages",
-      "matchDatasources":[
-        "docker"
-      ],
-      "matchPackageNames": [
-        "/(?:^|/)golang$/",
+      "groupName": "golang",
+      "matchDepNames": [
         "golang",
         "docker.io/golang",
         "docker.io/library/golang"
-      ],
-      "commitMessageTopic": "depedency golang"
-      // "depNameTemplate"
+      ]
     },
     {
       "description": "Group node-version packages",
@@ -72,17 +57,3 @@
     }
   ]
 }
-
-
-// {
-//   "commitMessageTopic": "Node.js",
-//   "matchDatasources": [
-//     "docker"
-//   ],
-//   "matchPackageNames": [
-//     "/(?:^|/)node$/",
-//     "!calico/node",
-//     "!docker.io/calico/node",
-//     "!kindest/node"
-//   ]
-// }
