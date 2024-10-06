@@ -39,9 +39,6 @@
         "golang",
         "docker.io/golang",
         "docker.io/library/golang"
-      ],
-      "matchUpdateTypes": [
-        "major"
       ]
     },
     {
