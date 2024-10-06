@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Contains rules specific to the devtool (CI and dev environment...)",
+  "packageRules": [
+    {
+      "description": "Group all dependencies from the docs directory",
+      "matchFileNames": ["docs/**"],
+      "groupName": "Docs dependencies",
+      "enabled": true
+    }
+  ]
+}
+
+
+
