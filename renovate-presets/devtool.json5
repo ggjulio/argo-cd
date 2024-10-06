@@ -1,0 +1,94 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Rules specific to the devtool (CI, dev environment...)",
+  "packageRules": [
+    {
+      "description": "Enable updates from specified datasources",
+      "matchDatasources": [
+        "node-version",
+        "golang-version"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Enable updates from specified go modules",
+      "matchDatasources": [
+        "go"
+      ],
+      "matchPackageNames": [
+        "github.com/golangci/golangci-lint"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Enable updates from specified docker images",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "docker.io/library/node",
+        "docker.io/library/golang"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Group golang-version major",
+      "groupName": "golang version major",
+      "matchDepNames": [
+        "go",
+        "golang",
+        "docker.io/golang",
+        "docker.io/library/golang"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
+    },
+    {
+      "description": "Group golang-version minor and patch",
+      "groupName": "golang version minor",
+      "matchDepNames": [
+        "go",
+        "golang",
+        "docker.io/golang",
+        "docker.io/library/golang"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "Group node-version major",
+      "groupName": "node version major",
+      "matchDepNames": [
+        "node",
+        "docker.io/library/node"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
+    },
+    {
+      "description": "Group node-version minor and patch",
+      "groupName": "node version minor",
+      "matchDepNames": [
+        "node",
+        "docker.io/library/node"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "Example: reduce noise by automerging safe pkgs. Multiple match fields can be used to reduce the scope of this rule...",
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": false
+    }
+  ]
+}
