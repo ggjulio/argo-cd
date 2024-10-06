@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Contains rules specific to the devtool (CI and dev environment...)",
+  "packageRules": [
+    {
+      "description": "Disable all updates to avoid conflicts with dependabot, then enable what you need.",
+      "matchPackageNames": [
+        "*"
+      ],
+      "enabled": false
+    }
+  ]
+}
