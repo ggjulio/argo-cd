@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prHourlyLimit": 10,
   "extends": [
     "github>ggjulio/argo-cd//renovate-presets/commons.json5",
     "github>argoproj/argo-cd//renovate-presets/custom-managers/shell.json5",
