@@ -48,9 +48,10 @@
         "docker"
       ],
       "matchPackageNames": [
-          "golang",
-          "docker.io/golang",
-          "docker.io/library/golang"
+        "/(?:^|/)golang$/",
+          // "golang",
+          // "docker.io/golang",
+          // "docker.io/library/golang"
         ]
     },
     {
