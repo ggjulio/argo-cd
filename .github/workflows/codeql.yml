@@ -26,7 +26,7 @@ jobs:
     if: github.repository == 'argoproj/argo-cd' || vars.enable_codeql
 
     # CodeQL runs on ubuntu-latest and windows-latest
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout repository
       uses: actions/checkout@8410ad0602e1e429cee44a835ae9f77f654a6694 # v4.0.0
