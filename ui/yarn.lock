@@ -1312,22 +1312,22 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@codecov/bundler-plugin-core@^0.0.1-beta.10":
-  version "0.0.1-beta.10"
-  resolved "https://registry.yarnpkg.com/@codecov/bundler-plugin-core/-/bundler-plugin-core-0.0.1-beta.10.tgz#8e19916db3ef164ae3ea0cab78b540b377ba7635"
-  integrity sha512-fOgy02gc0Z0ipKVe8QqN7mcmzQYjHb2UzT6RtHR+tqyYwpe1r1Kg5E/pbIOXKLaJGXK+AaOX23qtgp6kvUn+iA==
+"@codecov/bundler-plugin-core@^0.0.1-beta.12":
+  version "0.0.1-beta.12"
+  resolved "https://registry.yarnpkg.com/@codecov/bundler-plugin-core/-/bundler-plugin-core-0.0.1-beta.12.tgz#5457bb342ff2785a97b59203310c90036f25de90"
+  integrity sha512-QZOVp90ZtSCj6p5AO8rnSzee7E4T6PeA5XXd8/miggK5Mi9OtcuB0N1zTPDp3ry5lLLbeWTcdxNVGGnqMHfz8w==
   dependencies:
     chalk "4.1.2"
     semver "^7.5.4"
     unplugin "^1.10.1"
     zod "^3.22.4"
 
-"@codecov/webpack-plugin@^0.0.1-beta.10":
-  version "0.0.1-beta.10"
-  resolved "https://registry.yarnpkg.com/@codecov/webpack-plugin/-/webpack-plugin-0.0.1-beta.10.tgz#74b5d8b05775c39ec8acb82bd921ea60f472be1e"
-  integrity sha512-wGh4YEy05HdNa64zRbqv20t7gq24mqTf0T3YUr6XzEd7DLHvm3QcTtUOz8Q8eekMKtvS0CiH3UHmBIAQyPSTZw==
+"@codecov/webpack-plugin@^0.0.1-beta":
+  version "0.0.1-beta.12"
+  resolved "https://registry.yarnpkg.com/@codecov/webpack-plugin/-/webpack-plugin-0.0.1-beta.12.tgz#ea067e60b31f7168d99b26fae5c5d1ac80669d64"
+  integrity sha512-Zh+Ljh9r9bOZ1Gr23xnvsrDJEeJbY+CXYVvyYTf8hLYBqW4RB7O/VqFBgO6kehkhU+B3t+GYp6q1OQbDeTGW9g==
   dependencies:
-    "@codecov/bundler-plugin-core" "^0.0.1-beta.10"
+    "@codecov/bundler-plugin-core" "^0.0.1-beta.12"
     unplugin "^1.10.1"
 
 "@cspotcode/source-map-support@^0.8.0":
