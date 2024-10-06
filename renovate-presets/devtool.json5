@@ -33,7 +33,7 @@
     },
     {
       "description": "Group golang-version packages",
-      "groupName": "golang",
+      "groupName": "group golang",
       "matchDepNames": [
         "golang",
         "docker.io/golang",
