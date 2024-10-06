@@ -16,6 +16,7 @@ require (
 	github.com/aws/aws-sdk-go v1.55.5
 	github.com/bmatcuk/doublestar/v4 v4.6.1
 	github.com/bombsimon/logrusr/v2 v2.0.1
+	github.com/bombsimon/logrusr/v4 v4.1.0
 	github.com/bradleyfalzon/ghinstallation/v2 v2.11.0
 	github.com/casbin/casbin/v2 v2.100.0
 	github.com/casbin/govaluate v1.2.0
