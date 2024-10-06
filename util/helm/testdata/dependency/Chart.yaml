@@ -4,7 +4,7 @@ description: A Helm chart for Kubernetes
 home: https://localhost
 dependencies:
   - name: mongodb
-    version: 7.8.10
+    version: 15.6.26
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
   - name: eventstore
