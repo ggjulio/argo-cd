@@ -4,7 +4,7 @@
 image:
   registry: docker.io
   repository: bitnami/wordpress
-  tag: 4.9.8-debian-9
+  tag: 6.6.2-debian-12-r6@sha256:ca3286d6295c050bb103da9bf84322ce52292e9eb53c578d866e9c9cd9869914
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
