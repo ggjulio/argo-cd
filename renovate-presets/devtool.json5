@@ -52,7 +52,8 @@
         "docker.io/golang",
         "docker.io/library/golang"
       ],
-      "groupSlug": "golang"
+      "commitMessageTopic": "depedency golang"
+      // "depNameTemplate"
     },
     {
       "description": "Group node-version packages",
@@ -61,15 +62,6 @@
       ]
     },
     {
-      //   "description": "Group golang-version packages",
-      //   "groupName": "golang version",
-      //   "matchDepNames": [
-      //     "go",
-      //     "golang",
-      //     "docker.io/golang",
-      //     "docker.io/library/golang"
-      //   ]
-      // },
       "description": "Example: reduce noise by automerging safe pkgs. Multiple match fields can be used to reduce the scope of this rule...",
       "matchUpdateTypes": [
         "patch",
