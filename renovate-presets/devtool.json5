@@ -52,7 +52,8 @@
         "docker.io/golang",
         "docker.io/library/golang"
       ],
-      "commitMessageTopic": "golang"
+      "commitMessageTopic": "golang",
+      "depNameTemplate": "golang"
     },
     {
       "description": "Group node-version packages",
