@@ -2246,12 +2246,12 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react-form@^2.16.0":
-  version "2.16.2"
-  resolved "https://registry.yarnpkg.com/@types/react-form/-/react-form-2.16.2.tgz#f8f5df0b0f27a1dcca62fe35e32ad42e8a71d273"
-  integrity sha512-hXWSs5M3OdTbgQHk8q5X1/VhttJz/VgOt3B9ZDj5z8mPv9eaaI5O/h/DUmE8EaGSGoZ1pluDPbhqo0sTmTjRew==
+"@types/react-form@^2.16.2":
+  version "2.16.15"
+  resolved "https://registry.yarnpkg.com/@types/react-form/-/react-form-2.16.15.tgz#2469ce9e026f0576b2e9b9f58e51cc82fd61169c"
+  integrity sha512-uyonTWluQD07Nzf+lBpzr7kkNyd2bFD/y75WReZ+0/Fe9V6smQjJ1tEUV8v6OpMuO5arojRCTtCc5tsDhbzMaw==
   dependencies:
-    "@types/react" "*"
+    "@types/react" "^16"
 
 "@types/react-helmet@^6.1.6":
   version "6.1.6"
