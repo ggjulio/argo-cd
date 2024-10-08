@@ -17,8 +17,8 @@
       ],
       "matchPackageNames": [
         "github.com/golangci/golangci-lint",
-        "github.com/spdx/spdx-sbom-generator/cmd/generator",
-        "sigs.k8s.io/bom/cmd/bom"
+        "github.com/spdx/spdx-sbom-generator*",
+        "sigs.k8s.io/bom*"
       ],
       "enabled": true
     },
