@@ -5,7 +5,7 @@ kind: Kustomization
 images:
 - name: quay.io/argoproj/argocd
   newName: quay.io/argoproj/argocd
-  newTag: latest
+  newTag: latest@sha256:e1867bbc82174db6c9e8d8ceb392118eff9586c485d8c00b48f7efa4a8ab05cd
 resources:
 - ./application-controller
 - ./dex

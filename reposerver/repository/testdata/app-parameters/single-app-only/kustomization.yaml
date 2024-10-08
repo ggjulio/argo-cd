@@ -5,4 +5,4 @@ resources:
 - guestbook.yaml
 images:
 - name: gcr.io/heptio-images/ks-guestbook-demo
-  newTag: "0.1"
+  newTag: "0.1@sha256:fe18e00a6aeece16b5b2f77a32ee60929e8a60e27c71df8df66bf804f5677f47"

@@ -2,7 +2,7 @@
 ##
 image:
   repository: minio/minio
-  tag: RELEASE.2018-07-10T01-42-11Z
+  tag: RELEASE.2018-07-10T01-42-11Z@sha256:c65c6cf9b98f3bd4871b9ea79e03bf9ef26824ff8baef960475d69a57bf00e82
   pullPolicy: IfNotPresent
 
 ## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
@@ -10,7 +10,7 @@ image:
 ##
 mcImage:
   repository: minio/mc
-  tag: RELEASE.2018-06-09T02-18-09Z
+  tag: RELEASE.2018-06-09T02-18-09Z@sha256:da2dc1e5e09407e64e21493c229b1dd4a5bec5b98a45d017ae2c5c5f6151c776
   pullPolicy: IfNotPresent
 
 ## minio server mode, i.e. standalone or distributed.
