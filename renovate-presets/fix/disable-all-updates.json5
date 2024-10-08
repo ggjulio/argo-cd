@@ -6,6 +6,9 @@
       "matchPackageNames": [
         "*"
       ],
+      "matchDatasources": [
+        "*"
+      ],
       "enabled": false
     }
   ]
