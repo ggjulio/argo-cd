@@ -163,8 +163,10 @@ jobs:
         id: spdx-builder
         env:
           # defines the spdx/spdx-sbom-generator version to use.
+          # renovate: datasource=go packageName=github.com/spdx/spdx-sbom-generator/cmd/generator versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)?$
           SPDX_GEN_VERSION: v0.0.13
           # defines the sigs.k8s.io/bom version to use.
+          # renovate: datasource=go packageName=sigs.k8s.io/bom/cmd/bom versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)?$
           SIGS_BOM_VERSION: v0.2.1
           # comma delimited list of project relative folders to inspect for package
           # managers (gomod, yarn, npm).

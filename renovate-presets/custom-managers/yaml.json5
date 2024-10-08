@@ -4,12 +4,12 @@
     {
       "description": "A generic custom manager for updating any yaml fields ending by 'version:' (case insensitive)",
       "customType": "regex",
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
+        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?:\\s*(?<currentValue>[^'\"\\s]+)"
+      ],
       "fileMatch": [
         ".github\\/workflows.+\\.(?:yml|yaml)$"
-      ],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?:'|\")(?<currentValue>[^(?:'|\")]+)(?:'|\")",
-        "# renovate: datasource=(?<datasource>.*?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s.+?((?i)VERSION)\\s*:\\s*(?<currentValue>[^'\"\\s]+)"
       ]
     }
   ]

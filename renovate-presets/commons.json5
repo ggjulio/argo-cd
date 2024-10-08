@@ -42,6 +42,22 @@
       ]
     },
     {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "addLabels": [
+        "minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "addLabels": [
+        "patch"
+      ]
+    },
+    {
       "description": "Add labels for PRs related to javascript",
       "matchDatasources": [
         "node-version",
@@ -68,6 +84,15 @@
       ],
       "addLabels": [
         "python"
+      ]
+    },
+    {
+      "description": "Add labels for PRs related to containers",
+      "matchCategories": [
+        "docker"
+      ],
+      "addLabels": [
+        "docker"
       ]
     }
   ]
