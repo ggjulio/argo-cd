@@ -83,7 +83,7 @@ WORKDIR /home/argocd
 ####################################################################################################
 # Argo CD UI stage
 ####################################################################################################
-FROM --platform=$BUILDPLATFORM docker.io/library/node:22.9.0@sha256:69e667a79aa41ec0db50bc452a60e705ca16f35285eaf037ebe627a65a5cdf52 AS argocd-ui
+FROM --platform=$BUILDPLATFORM docker.io/library/node:23.1.0@sha256:840dad0077213cadd2d734d542ae11cd0f648200be29504eb1b6e2c995d2b75a AS argocd-ui
 
 WORKDIR /src
 COPY ["ui/package.json", "ui/yarn.lock", "./"]
